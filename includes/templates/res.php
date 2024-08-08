@@ -2,15 +2,19 @@
     $db = conectarDB();
     $query = "SELECT * FROM research";
     $resultado = mysqli_query($db, $query);
+    $query2 = "SELECT * FROM about";
+    $resultado2 = mysqli_query($db, $query2);
 ?>
 
 
 <div class="about-info">
     <div class="about-text">   
         <h1>Research</h1>                    
-        <p>As part of my doctoral research, I am involved in three projects associated with stuck pipe prevention.
-                Below is a brief summary of these projects. Visitors that would like more information can click on the link at the end of each
-                summary to be re-directed to comprehensive publications related to each project.</p>
+        <?php
+        $texts=mysqli_fetch_assoc($resultado2);
+        $resTextHeader  =   $texts['resheader'];
+        echo $resTextHeader;
+        ?>
         <?php
         while($res = mysqli_fetch_assoc($resultado)):
             $items[] = $res;
