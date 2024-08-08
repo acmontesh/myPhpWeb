@@ -1,0 +1,109 @@
+.carousel-container{
+    background:$letrasClaro;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    overflow: hidden;
+    width:100%;   
+    margin: 0 auto;
+    border-radius: 1rem;
+    margin-bottom:4rem;
+}
+
+
+
+.all-quotes{     
+    display:flex;
+    flex-direction: row;
+    position:relative;
+    min-height:60rem;
+    justify-content: center;
+    .quote-container{
+        position:absolute;
+        min-height:20rem;
+        width: 30rem;
+        background: $fondoQuotes;
+        margin: 1rem 1rem 1rem 1rem;
+        padding: 1rem 2rem 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateX(  calc(100% + 40rem)  ) scale(0.6);
+
+        transition: transform .5s cubic-bezier(.09,.83,.9,.64),
+                    opacity .5s ease-out;
+        border-radius: 1rem;
+        box-shadow: black .5rem .4rem;
+
+        .quote-image{
+            width:15rem;
+            height:15rem;
+            border-radius: 50%;
+        }
+        .quote-text {
+            img{width:6rem;}
+        }
+        &.previous-quote{
+            transform: translateX(  calc(50% - 40rem)  ) scale(0.6);
+            opacity: .4;
+            //cursor: pointer;
+        }
+        &.previous-left-quote{
+            transform: translateX(  calc(0% - 60rem)  ) scale(0.6);
+            opacity: 0;
+        }
+        &.later-later-quote{
+            transform: translateX(  calc(100% + 40rem)  ) scale(0.6);
+            opacity: 0;
+        }
+        &.later-quote{
+            transform: translateX(  calc(50% + 10rem)  ) scale(0.6);
+            opacity: .4;
+            //cursor: pointer;
+        }
+        &.current-quote{
+            opacity: 1;
+            transform: translateX(  calc(50% - 15rem)  ) scale(1.0);;
+        }
+    }
+}
+
+.pips{
+    display: flex;
+    flex-direction: row;
+    .pip{
+        width:1.3rem;
+        height:1.3rem;
+        background:$fondoDivsOscuros;
+        //border: .1rem solid $fondoDivs;
+        border-radius: 40%;
+        margin: 1rem 1rem 1rem 1rem;
+        //cursor: pointer;
+        &.current-pip{
+            width:3rem;
+            border-radius: 40%;
+            cursor: default;
+            position:relative;
+            overflow: hidden;
+            &::after{
+                content:"";
+                height:1.3rem;
+                background: $fondoDivs;
+                position:absolute;
+                left:0;
+                animation-name: afterFill;
+                animation-duration: 4s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+                animation-timing-function: linear;
+            }
+        }
+    }
+}
+
+@keyframes afterFill {
+    0% { width:0rem; }
+    100% { width:3rem; }
+}

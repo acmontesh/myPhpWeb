@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+@import url('https://fonts.cdnfonts.com/css/eboracum');
+@import url('https://fonts.cdnfonts.com/css/noto-sans-math');
+
+// Fuentes
+$fuente_titulos: 'Eboracum', sans-serif;
+$fuente_principal: 'Noto Sans Math', sans-serif;
+
+// Tamaño de Media Queries
+$telefono: 480px;
+$tablet: 768px;
+$ipadpro: 1024px;
+$desktop: 1440px;
+
+// Colores
+$negro: #000000;
+$amarillo: #E08709;;
+$verde: #71B100;
+$blanco: #FFFFFF;
+$gris: #e1e1e1;
+$grisOscuro: #333333;
+$fondoOscuro: #333333;
+$fondoDivsOscuros: #0E0F0A;
+$barraVerde: #33302B;
+$barraVerdeMasClaro: #9c9c9c;
+// $letrasClaro: #e8e8e8;
+$letrasClaro: #fafafa;
+$titulosClaro:#fffacb;
+$fondoDivs: #fafafa;
+$fondoQuotes: #dadada;
+$fondoDivsResearches: #d8d8d8;
+$letrasLinkClaro:#f7ff8e;
+$letrasLink:rgb(101, 121, 126);
+$fondoFooter: #000000;
+$rojoError: rgb(238, 51, 51);
+
+$separacion: 5rem;
+
+// Fuentes
+$delgada: 300;
+$regular : 400;
+$bold: 700;
+$black: 900

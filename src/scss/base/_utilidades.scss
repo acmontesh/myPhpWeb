@@ -1,0 +1,102 @@
+.seccion {
+    margin-top: calc($separacion / 2);
+    margin-bottom: calc($separacion / 2);
+}
+.contenido-centrado {
+    max-width: 800px;
+}
+
+.list-bullets{    
+    list-style-type: circle;
+    padding-left:8rem;
+    text-align: left;
+    &.gradcap{
+        list-style-type: none;
+        list-style-image: url(../../../build/img/gradcap_small.svg);
+        li {
+            margin-left:0;
+        }
+        // li::before {
+        //     content:'';
+        //     display: inline-block;
+        //     height:3rem;
+        //     width:3rem;        
+        //     background-size:cover;    
+        //     background-image: url(../../../build/img/gradcap.svg);
+        //     background-repeat: no-repeat;
+        //     background-position: center center;    
+        //     margin-right:2rem;        
+        // }
+    }
+    
+    
+
+}
+
+.read-more-button{
+    height:3rem;
+    width:20%;
+    transition: all .25s cubic-bezier(.75,0,.47,1);
+    background:$barraVerdeMasClaro;
+    margin: 0 0 1rem 5rem;
+    border-radius: 1rem;
+    &:hover{cursor: pointer;transform:scale(1.1);background:$fondoOscuro;}
+    text-align: center;
+    justify-content: center;
+    a{
+        color: white;
+    }
+}
+
+.list-nobullets{
+    list-style-type: none;//"\1f393";
+    padding-left:0;
+}
+
+.fixed-top {
+    position: fixed;
+    //top: 0;
+}
+
+.single-container{
+    background: $letrasClaro;
+    box-shadow: 2px -1px 16px -10px rgba(0,0,0,0.75);
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    max-width:140rem;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    h1{margin-top: 2rem;}
+    p{margin: 0 5rem 5rem 5rem;}
+    .social-share{margin-bottom:5rem;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    .share-twitter,  
+    .share-linkedin{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left:1rem;
+        margin-right:1rem;
+    }
+    
+}
+    h1,h2,h3,h4 {
+        margin: 2rem 5rem 1rem 5rem;    
+    }
+}
+
+.smaller-font{
+    p{font-size: 1.7rem;}
+    ul{li{
+        font-size: 1.7rem;
+        @include tablet {
+            font-size: 1.7rem;
+        }
+    }}
+}

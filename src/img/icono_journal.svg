@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2023 (Not for commercial use) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.661835in" height="0.69415in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 113.38 118.92"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="747" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Elephant">
+		<font-face-src>
+			<font-face-name name="Elephant"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="J" horiz-adv-x="655" d="M291.998 115.002l2.00316 45.997 0 443 -2.00316 45.997c-1.99371,22.0064 -6.50081,36.8411 -13.5024,44.5041 -6.99215,7.66302 -16.9985,12.3307 -29.9906,14.0032 -13.0016,1.663 -24.0001,2.66458 -33.0048,2.99529 -8.9953,0.33071 -16.8378,0.831499 -23.4993,1.50237l0 15.9969 451.995 0 0 -15.9969 -46.9986 -3.99686c-19.9938,-2.67402 -33.6662,-8.00317 -40.9986,-16.0063 -7.33231,-7.99373 -12,-22.9985 -14.0032,-44.9954l-1.99371 -46.0064 0 -347c0,-73.3325 -35.1686,-136.167 -105.506,-188.495 -70.3278,-52.3372 -148.158,-78.501 -233.5,-78.501 -62.9955,0 -114.331,14.6646 -154.158,44.0033 -39.8363,29.3292 -59.8396,70.3278 -59.8396,122.996 0,33.3355 12.3307,62.0033 37.1718,86.0034 24.6615,24.0001 54.1608,36.0001 88.3278,36.0001 40.1671,0 72.0002,-11.3386 95.3389,-34.0064 23.4993,-22.6583 35.1592,-52.3277 35.1592,-88.9987 0,-31.9938 -7.66302,-57.6663 -22.9985,-76.9987 -17.3292,-18.0001 -34.3277,-36.0001 -50.9954,-54.0002 0,-6.66144 4.66773,-11.1685 13.9937,-13.5024 9.33546,-2.33387 21.0048,-3.49607 35.008,-3.49607 28.6584,0 48.1608,11.1685 58.4978,33.4962 10.3276,22.3371 15.4961,47.4994 15.4961,75.5057z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Elephant";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .str1 {stroke:#33302B;stroke-width:1.19;stroke-miterlimit:2.61313}
+    .str0 {stroke:#33302B;stroke-width:11.9;stroke-miterlimit:2.61313}
+    .fil0 {fill:none}
+    .fil1 {fill:#33302B}
+    .fnt0 {font-weight:normal;font-size:71.38px;font-family:'Elephant'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2924998747088">
+   <rect class="fil0 str0" x="5.95" y="5.95" width="101.49" height="107.02" rx="7.63" ry="7.63"/>
+   <polygon class="fil1 str1" points="23.35,5.95 40.8,5.95 40.8,62.54 39.63,62.54 37.74,59.01 32.07,48.43 26.41,59.01 24.52,62.54 23.35,62.54 "/>
+   <text x="41.87" y="89.67"  class="fil1 fnt0">J</text>
+  </g>
+ </g>
+</svg>
