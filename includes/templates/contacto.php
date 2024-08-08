@@ -45,9 +45,12 @@ require __DIR__ . '/../config/contactForm.php';
                 <legend>Message</legend>
                 <label for="mensaje">Message</label>    
                 <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Your message" required></textarea>
-                <div class="contenedor-recaptcha">
-                    <div class="g-recaptcha" data-sitekey="<?php echo $_ENV["CAPTCHA_SITE"] ?>"></div>
+          
+                <div id="contenedor-captcha">
+                <div class="g-recaptcha" data-size='compact' data-sitekey="<?php echo $_ENV["CAPTCHA_SITE"] ?>"></div>
                 </div>
+    
+
             </fieldset>
             
             <input type="submit" name="submit" value="submit" class="boton-formulario">                                
