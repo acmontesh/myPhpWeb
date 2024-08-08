@@ -31,10 +31,10 @@
         }
         form{
             label{display:block;font-weight: $bold;} 
-            input:not([type=submit])
+            input:not([type=submit]),
+            textarea
             {width:80%;
                 padding:1rem;  
-            textarea{padding:0rem;}
             border: 1px solid $barraVerde;
             border-radius: .6rem;};
             margin-bottom: 2rem;
@@ -44,7 +44,8 @@
             #contenedor-captcha{
               max-width: 360px;
               text-align: center;
-              margin: 0 0;
+              justify-content: center;
+              margin: 0 auto;
               @include ipadpro{
                 max-width: 1200px;
               }
