@@ -43,10 +43,10 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 $mail->AltBody = $contenidoAlt;
                 if($mail->send(  )) {
                     ob_get_clean();
-                    header('Location: /index.php?stme=1');
+                    header('Location: /?stme=1');
                 } else {
                     ob_get_clean();
-                    header('Location: /index.php?errm=0');
+                    header('Location: /?errm=0');
                 }
             } catch (Exception $e) {
                 ob_get_clean();
@@ -54,15 +54,15 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 echo $e;
                 echo "</pre>";
                 exit;
-                header('Location: /index.php?errm=1');
+                header('Location: /?errm=1');
             }
         } else {
             ob_get_clean();
-            header('Location: /index.php?errm=2');
+            header('Location: /?errm=2');
         } 
     } else {
         ob_get_clean();
-        header('Location: /index.php?errm=2');
+        header('Location: /?errm=2');
     }
 }
 ?>
