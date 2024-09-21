@@ -63,7 +63,7 @@
         .moreinfo-box{
             height:100%;
             width:100%;
-            max-height:100rem;
+            max-height:180rem;
             overflow:hidden;
             transition: max-height .5s cubic-bezier(.79,-0.01,.44,1.01) 0s;
             &:hover{border-radius: 5rem;}

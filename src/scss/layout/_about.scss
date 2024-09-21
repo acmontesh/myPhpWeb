@@ -180,7 +180,10 @@
                 padding-top:2rem;
             }
             p{
-                margin: 1rem 5rem 0 5rem;
+                margin: 1rem 2rem 0 2rem;
+                @include ipadpro {
+                    margin: 1rem 5rem 0 5rem;
+                }
                 padding-bottom:2rem;
             }
 
