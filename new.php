@@ -13,7 +13,7 @@ $new = mysqli_fetch_assoc($new);
 ?>
 
     <main>
-        <div class="single-container">
+        <div id="news-container" class="single-container">
             <div class="images-new">
                 <img src="/build/img/<?php echo $new['image1']; ?>" alt="">
                 <?php
@@ -26,7 +26,7 @@ $new = mysqli_fetch_assoc($new);
             <h4><?php echo $new['headline']; ?></h4>
             <strong><?php echo $new['month'] . ", " . $new['year'] . ". "; ?></strong>
             <p><?php echo $new['content']; ?></p>
-            <div class="read-more-button">
+            <div class="go-back-button">
             <a href="/">
             Back
             </a>

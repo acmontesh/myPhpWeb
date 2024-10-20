@@ -138,6 +138,29 @@
     
 }
 
+.go-back-button{
+    width: 20%;
+
+    height:3rem;
+    background:$fondoOscuro;
+    margin: 0 0 1rem 1rem;
+    border-radius: 1rem;
+    &:hover{cursor: pointer;transform: scale(1.1);}
+    text-align: center;
+    justify-content: center;
+}
+
+#news-container{
+    padding: 0;
+    margin: 0;
+    margin: 0 auto;
+    p {
+        margin: 1rem 1rem;
+        @include tablet{
+            margin: 1rem 2rem;
+        }
+    }
+}
 
 .images-new{
     margin: 2rem 5rem 2rem 5rem;
