@@ -21,6 +21,8 @@
         <!-- <video controls="false" autoplay="autoplay">
             <source src="/build/img/stuck.mp4" type="video/mp4">
         </video> -->
+        <?php 
+        if ($inicio) { ?>
             <div class="barra" id="barra">
                 <a class="brand" href="/">Abraham C. Montes</a>
 
@@ -52,6 +54,9 @@
                     <a class="disabled-a" href="/">ES</a>
                 </nav>
             </div> <!--Close div barra-->
+            <?php 
+                }
+                    ?>
             
         </div>
         <?php 
