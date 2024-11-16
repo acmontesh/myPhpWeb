@@ -15,6 +15,7 @@ IncluirPlantilla("header", $inicio);
                         <div class="iconos">
                             <a href="https://scholar.google.com/citations?user=Va0vQdsAAAAJ&hl=es"><img class="icono" src="build/img/icono_scholar_dark.svg" href="https://scholar.google.com/citations?user=Va0vQdsAAAAJ&hl=es" alt=""/></a>
                             <a href="https://www.linkedin.com/in/abraham-c-montes-6661a841/"><img class="icono" src="build/img/icono_linkedin_dark.svg" href="https://www.linkedin.com/in/abraham-c-montes-6661a841/" alt=""/></a>
+                            <a href="https://www.researchgate.net/profile/Abraham-Montes-4"><img class="icono" src="/build/img/icono_rgate_dark.svg" alt=""/></a>
                             <a href="https://github.com/acmontesh"><img class="icono" src="build/img/icono_github_dark.svg" href="https://github.com/acmontesh" alt=""/></a>
                         </div>
                     </div> <!--Close div Texto-->

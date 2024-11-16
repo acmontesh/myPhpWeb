@@ -70,6 +70,7 @@
                 <div class="iconos">
                     <a href="https://scholar.google.com/citations?user=Va0vQdsAAAAJ&hl=es"><img src=/build/img/icono_scholar.svg alt=""/></a>  <!--""-->
                     <a href="https://www.linkedin.com/in/abraham-c-montes-6661a841/"><img src="/build/img/icono_linkedin.svg" alt=""/></a>
+                    <a href="https://www.researchgate.net/profile/Abraham-Montes-4"><img src="/build/img/icono_rgate.svg" alt=""/></a>
                     <a href="https://github.com/acmontesh"><img src="/build/img/icono_github.svg" alt=""/></a>
                 </div>
                 <div class="contenedor-flecha">
