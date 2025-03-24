@@ -8,7 +8,7 @@ html {
 body {
     margin: 0 auto;
     font-family: $fuente_principal;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     line-height: 1.8;
     background-color: $fondoDivs;
     
@@ -22,7 +22,7 @@ p, ul, ol {
     color: $negro;
     font-size: 1.7rem;
     @include ipadpro{
-        font-size: 2.0rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -47,13 +47,13 @@ picture {
 h1, h2, h3 {
     font-family: $fuente_titulos;
     margin: calc($separacion / 2) 0;
-    font-weight: 300;
+    font-weight: 600;
     text-align: center;
     
 }
 
 h1 {
-    font-size: 3.8rem;
+    font-size: 4.2rem;
 }
 h2 {
     font-size: 3.4rem;

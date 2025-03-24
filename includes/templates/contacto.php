@@ -53,7 +53,7 @@ require __DIR__ . '/../config/contactForm.php';
 
             </fieldset>
             
-            <input type="submit" name="submit" value="submit" class="boton-formulario">                                
+            <input type="submit" name="submit" value="Send" class="boton-formulario">                                
         </form>
     </div>
     
