@@ -63,7 +63,7 @@
         if ($inicio) { ?>
         <div class="texto-inicio">
                 <h3>Abraham C. Montes</h3>
-                <p>PhD Student<br>
+                <p>PhD Candidate<br>
                    Drilling Automation<br>
                    The University of Texas at Austin
                 </p>
