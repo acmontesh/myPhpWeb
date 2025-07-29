@@ -163,6 +163,12 @@
             margin: 1rem 2rem;
         }
     }
+    ul {
+        margin-right: 1rem;
+        @include tablet{
+            margin-right: 0.5rem;
+        }
+    }
 }
 
 .images-new{
