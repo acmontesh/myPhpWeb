@@ -11,7 +11,7 @@ IncluirPlantilla("header", $inicio);
                 <div class="foto-and-info" id="foto-and-info">
                     <img src="build/img/photo.webp" alt="Abraham C. Montes">
                     <div class="texto-inicio">
-                        PhD Student | Drilling Automation<br></p>
+                        PhD Candidate | Drilling Automation<br></p>
                         <div class="iconos">
                             <a href="https://scholar.google.com/citations?user=Va0vQdsAAAAJ&hl=es"><img class="icono" src="build/img/icono_scholar_dark.svg" href="https://scholar.google.com/citations?user=Va0vQdsAAAAJ&hl=es" alt=""/></a>
                             <a href="https://www.linkedin.com/in/abraham-c-montes-6661a841/"><img class="icono" src="build/img/icono_linkedin_dark.svg" href="https://www.linkedin.com/in/abraham-c-montes-6661a841/" alt=""/></a>
