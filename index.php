@@ -27,7 +27,7 @@ IncluirPlantilla("header", $inicio);
                             </svg>   
                             <p>Pinned Post</p>
                         </div>
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7367225794890227712?collapsed=1" height="662" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7424633982493061120?collapsed=1" height="490" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
                     </div>
                 </div> <!--foto-and-info-->
                 <div class="right-info-container">
