@@ -1,0 +1,162 @@
+.landing-section {
+    position: relative;
+    padding-block: 11rem;
+    scroll-margin-top: 0;
+    overflow: clip;
+}
+
+// Alternate sections get a translucent band so the ambient background still
+// glows through.
+.landing-section:nth-of-type(even)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+    border-block: 1px solid var(--color-border);
+}
+
+[data-landing-nav-link].is-active {
+    color: var(--color-accent);
+}
+
+#quotes[data-landing-section] {
+    scroll-margin-top: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Multipage homepage — bento of section links
+// ---------------------------------------------------------------------------
+
+.home-explore {
+    padding-top: 8rem;
+}
+
+.home-quicklinks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    gap: 1.8rem;
+}
+
+.home-quicklinks__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    min-height: 22rem;
+    padding: 2.8rem;
+    border-radius: calc(var(--radius-card) * 1.4);
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    color: var(--color-text);
+    text-decoration: none;
+    overflow: hidden;
+    isolation: isolate;
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+
+    > i {
+        display: grid;
+        place-items: center;
+        width: 5.6rem;
+        height: 5.6rem;
+        border-radius: 1.4rem;
+        background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+        color: var(--color-accent);
+        font-size: 2.2rem;
+        transition: background-color 0.4s ease, color 0.4s ease, transform 0.5s var(--ease-spring);
+    }
+}
+
+.home-quicklinks__item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out);
+}
+
+.home-quicklinks__index {
+    position: absolute;
+    top: 2.2rem;
+    right: 2.6rem;
+    font-family: var(--font-family-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    transition: color 0.4s ease;
+}
+
+.home-quicklinks__label {
+    margin-top: auto;
+    font-family: var(--font-family-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.home-quicklinks__lead {
+    font-size: 1.3rem;
+    color: var(--color-muted);
+    transition: color 0.4s ease;
+}
+
+.home-quicklinks__arrow {
+    position: absolute;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    transform: rotate(-45deg);
+    transition: transform 0.5s var(--ease-spring), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.home-quicklinks__item:hover {
+    color: var(--color-accent-text);
+    box-shadow: var(--glow-accent);
+    border-color: transparent;
+}
+
+.home-quicklinks__item:hover::before {
+    opacity: 1;
+}
+
+.home-quicklinks__item:hover > i {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-accent-text);
+    transform: scale(1.08) rotate(-6deg);
+}
+
+.home-quicklinks__item:hover .home-quicklinks__index,
+.home-quicklinks__item:hover .home-quicklinks__lead {
+    color: color-mix(in srgb, var(--color-accent-text) 80%, transparent);
+}
+
+.home-quicklinks__item:hover .home-quicklinks__arrow {
+    transform: rotate(0deg);
+    background: var(--color-accent-text);
+    color: var(--color-accent);
+    border-color: transparent;
+}
+
+.home-quicklinks__item:hover .home-quicklinks__label {
+    padding-right: 4rem;
+}
+
+@media (max-width: 640px) {
+    .landing-section {
+        padding-block: 7rem;
+    }
+
+    .home-quicklinks__item {
+        min-height: 18rem;
+    }
+}

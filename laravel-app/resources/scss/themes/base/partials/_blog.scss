@@ -1,0 +1,125 @@
+// Blog cards mirror the news card language in _news.scss.
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2.4rem;
+}
+
+.blog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: calc(var(--radius-card) * 1.3);
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.blog-card:hover {
+    --lift: -0.6rem;
+    box-shadow: var(--shadow-card);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.blog-card__image {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 22%, var(--color-surface)), color-mix(in srgb, var(--color-accent-2) 22%, var(--color-surface)));
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s var(--ease-out);
+    }
+}
+
+.blog-card:hover .blog-card__image img {
+    transform: scale(1.08);
+}
+
+.blog-card__placeholder {
+    font-size: 4rem;
+    color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+}
+
+.blog-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+    padding: 2.4rem;
+
+    h3 {
+        margin: 0;
+        font-size: 1.95rem;
+        line-height: 1.25;
+        text-align: left;
+
+        a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+    }
+
+    p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: 1.4rem;
+    }
+}
+
+.blog-card__date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+// "Read more" pill — follows the theme's own --radius-card shape language.
+.blog-card__more {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-accent);
+    background: transparent;
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+    i {
+        font-size: 1.1rem;
+        transition: transform 0.3s var(--ease-out);
+    }
+}
+
+.blog-card__more:hover {
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    box-shadow: var(--glow-accent);
+}
+
+.blog-card__more:hover i {
+    transform: translateX(0.4rem);
+}

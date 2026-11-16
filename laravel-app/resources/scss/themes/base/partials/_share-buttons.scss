@@ -1,0 +1,28 @@
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.share-buttons__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    color: var(--color-text);
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.4s var(--ease-spring);
+}
+
+.share-buttons__link:hover {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    color: var(--color-accent-text);
+    transform: translateY(-0.3rem) rotate(-8deg);
+}

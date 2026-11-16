@@ -1,0 +1,71 @@
+.data-table-wrapper {
+    overflow-x: auto;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1.2rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.3rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+    white-space: nowrap;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table th {
+    color: var(--admin-text-muted);
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.data-table__thumb {
+    width: 5.4rem;
+}
+
+.data-table__thumb img,
+.data-table__thumb-placeholder {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 0.8rem;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--admin-bg);
+    color: var(--admin-text-muted);
+}
+
+.data-table__actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.data-table__actions form {
+    display: inline-flex;
+}
+
+.data-table__order-input {
+    width: 7rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.6rem;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.btn--spaced {
+    margin-top: 2rem;
+}

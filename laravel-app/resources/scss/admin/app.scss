@@ -1,0 +1,386 @@
+// Dashboard/admin panel styling — intentionally separate from the public
+// theme stylesheets (resources/scss/themes/*) per the "do not mix CSS across
+// components" coding rule. --admin-accent/--admin-accent-text are set inline
+// per-admin (Phase 10 appearance picker); [data-color-mode] below swaps the
+// rest of the palette between light/dark, persisted on the admins row.
+
+@use 'partials/sidebar';
+@use 'partials/topbar';
+@use 'partials/dashboard-home';
+@use 'partials/tabs';
+@use 'partials/tables';
+@use 'partials/modal';
+@use 'partials/image-upload';
+@use 'partials/themes';
+@use 'partials/slots';
+@use 'partials/appearance';
+@use 'partials/about-entries';
+@use 'partials/hero-slides';
+
+:root {
+    --admin-bg: #f4f6f9;
+    --admin-surface: #ffffff;
+    --admin-text: #1f2430;
+    --admin-text-muted: #6b7280;
+    --admin-border: #e2e5ea;
+    --admin-accent: #2f6fed;
+    --admin-accent-text: #ffffff;
+    --admin-danger: #d64545;
+    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+[data-color-mode='dark'] {
+    --admin-bg: #14161c;
+    --admin-surface: #1b1e26;
+    --admin-text: #e7e9ee;
+    --admin-text-muted: #9aa1b0;
+    --admin-border: #2b2f3a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 11px;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+}
+
+a {
+    color: var(--admin-accent);
+    text-decoration: none;
+}
+
+.auth-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 38rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1.2rem;
+    box-shadow: 0 1.5rem 4rem rgba(17, 24, 39, 0.08);
+    padding: 3.6rem 3.2rem;
+}
+
+.auth-card__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+
+    i {
+        font-size: 2.2rem;
+        color: var(--admin-accent);
+    }
+
+    span {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+}
+
+.auth-card__title {
+    margin: 0 0 0.4rem;
+    font-size: 2.2rem;
+}
+
+.auth-card__subtitle {
+    margin: 0 0 2.8rem;
+    color: var(--admin-text-muted);
+    font-size: 1.3rem;
+}
+
+.form-field {
+    margin-bottom: 1.8rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.form-field input[type='email'],
+.form-field input[type='text'],
+.form-field input[type='tel'],
+.form-field input[type='password'],
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    background: var(--admin-surface);
+    color: var(--admin-text);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 8rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 0.3rem rgba(47, 111, 237, 0.15);
+}
+
+.form-field .required {
+    color: var(--admin-danger);
+}
+
+.form-field__hint {
+    margin: 0.6rem 0 0;
+    font-size: 1.15rem;
+    color: var(--admin-text-muted);
+}
+
+.file-upload__current {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+
+    i {
+        color: var(--admin-accent);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 30rem;
+    gap: 2.4rem;
+    align-items: start;
+}
+
+.form-main,
+.form-sidebar {
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1.2rem;
+    padding: 2.4rem;
+}
+
+.form-main--narrow {
+    max-width: 60rem;
+}
+
+@media (max-width: 1100px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.content-header__hint {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 1.3rem;
+}
+
+.form-field__error {
+    margin-top: 0.6rem;
+    font-size: 1.2rem;
+    color: var(--admin-danger);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+    font-size: 1.3rem;
+}
+
+.admin-form__divider {
+    border: none;
+    border-top: 1px solid var(--admin-border);
+    margin: 2.8rem 0;
+}
+
+.admin-form__subheading {
+    margin: 0 0 0.6rem;
+    font-size: 1.6rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.1rem 1.6rem;
+    border: none;
+    border-radius: 0.8rem;
+    background: var(--admin-accent);
+    color: var(--admin-accent-text);
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(0.95);
+}
+
+.btn--inline {
+    width: auto;
+    padding-inline: 2rem;
+    text-decoration: none;
+    gap: 0.8rem;
+}
+
+.btn--ghost {
+    background: none;
+    border: 1px solid var(--admin-border);
+    color: var(--admin-text);
+}
+
+.btn--danger {
+    background: var(--admin-danger);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.badge--success {
+    background: rgba(31, 138, 76, 0.12);
+    color: #1f8a4c;
+}
+
+.badge--muted {
+    background: rgba(107, 114, 128, 0.12);
+    color: var(--admin-text-muted);
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 0.6rem;
+    color: var(--admin-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.icon-link:hover {
+    background: var(--admin-bg);
+    color: var(--admin-text);
+}
+
+.icon-link--danger:hover {
+    color: var(--admin-danger);
+}
+
+.pagination {
+    margin-top: 2rem;
+}
+
+.pagination nav {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .pagination {
+    display: flex;
+    list-style: none;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .page-item .page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.4rem;
+    height: 3.4rem;
+    padding: 0 0.8rem;
+    border-radius: 0.6rem;
+    border: 1px solid var(--admin-border);
+    color: var(--admin-text);
+    font-size: 1.3rem;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--admin-accent);
+    border-color: var(--admin-accent);
+    color: var(--admin-accent-text);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: var(--admin-text-muted);
+}
+
+.alert {
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.alert--error {
+    background: rgba(214, 69, 69, 0.1);
+    color: var(--admin-danger);
+}
+
+.alert--success {
+    background: rgba(47, 168, 92, 0.12);
+    color: #1f8a4c;
+}
+
+// Minimal placeholder shell reused by the Phase 0 pause-point screen and,
+// until Phase 2 builds the real sidebar shell, by any authenticated stub page.
+.placeholder-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    text-align: center;
+    padding: 2rem;
+
+    i {
+        font-size: 3.2rem;
+        color: var(--admin-accent);
+    }
+}

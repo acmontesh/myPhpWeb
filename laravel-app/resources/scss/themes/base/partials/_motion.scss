@@ -1,0 +1,765 @@
+// Motion layer shared by every theme: scroll progress, intro curtain, ambient
+// background, custom cursor, reveal-on-scroll, split text, tilt glare,
+// section headings, stats strip, marquee and back-to-top. Everything here is
+// gated by `.motion-ready` (set only when motion is enabled in the admin and
+// the visitor hasn't asked for reduced motion), so without it the site is
+// fully static and fully visible.
+
+// ---------------------------------------------------------------------------
+// Scroll progress
+// ---------------------------------------------------------------------------
+
+.scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 120;
+    height: 0.3rem;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    pointer-events: none;
+}
+
+// ---------------------------------------------------------------------------
+// Intro curtain (first page of a session only)
+// ---------------------------------------------------------------------------
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+}
+
+.intro-seen .intro,
+:root:not(.motion-ready) .intro {
+    display: none;
+}
+
+.intro__panel {
+    position: absolute;
+    inset: 0;
+    background: var(--color-nav-bg);
+    animation: intro-wipe 0.9s var(--ease-out) 1.05s both;
+}
+
+.intro__panel--accent {
+    background: var(--gradient-accent);
+    animation-delay: 1.2s;
+}
+
+.intro__panel:not(.intro__panel--accent) {
+    animation-delay: 1.05s;
+    z-index: 1;
+}
+
+.intro__mark {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-family-heading);
+    font-size: clamp(6rem, 14vw, 14rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: intro-mark 1.3s var(--ease-out) both;
+}
+
+:root.motion-ready:not(.intro-seen) {
+    --intro-offset: 1.35s;
+}
+
+@keyframes intro-wipe {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes intro-mark {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem) scale(0.9);
+        filter: blur(1rem);
+    }
+
+    40% {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: none;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-4rem);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Ambient background — blurred gradient orbs + engineering grid
+// ---------------------------------------------------------------------------
+
+.ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambient__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(9rem);
+    opacity: 0.16;
+    translate: 0 var(--py, 0);
+}
+
+.ambient__orb--one {
+    top: 10vh;
+    left: -14vw;
+    width: 48vw;
+    height: 48vw;
+    background: var(--color-accent);
+}
+
+.ambient__orb--two {
+    top: 60vh;
+    right: -18vw;
+    width: 52vw;
+    height: 52vw;
+    background: var(--color-accent-2);
+}
+
+.ambient__orb--three {
+    top: 120vh;
+    left: 30vw;
+    width: 36vw;
+    height: 36vw;
+    background: var(--color-accent);
+    opacity: 0.1;
+}
+
+.motion-ready .ambient__orb--one {
+    animation: orb-drift 22s ease-in-out infinite alternate;
+}
+
+.motion-ready .ambient__orb--two {
+    animation: orb-drift 28s ease-in-out infinite alternate-reverse;
+}
+
+.ambient__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--color-text) 5%, transparent) 1px, transparent 1px);
+    background-size: 6.4rem 6.4rem;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 70%);
+    opacity: 0.6;
+}
+
+@keyframes orb-drift {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(6vw, 4vh) scale(1.15);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Custom cursor (fine pointers only, added by JS)
+// ---------------------------------------------------------------------------
+
+.cursor {
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    pointer-events: none;
+}
+
+.has-cursor,
+.has-cursor body,
+.has-cursor a,
+.has-cursor button,
+.has-cursor summary,
+.has-cursor label {
+    cursor: none;
+}
+
+.cursor__dot,
+.cursor__ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+.cursor__dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: -0.4rem 0 0 -0.4rem;
+    background: var(--color-accent);
+    transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease;
+}
+
+.cursor__ring {
+    display: grid;
+    place-items: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    margin: -1.9rem 0 0 -1.9rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+    transition: width 0.35s var(--ease-out), height 0.35s var(--ease-out), margin 0.35s var(--ease-out), background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor__label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent-text);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.cursor.is-hover .cursor__ring {
+    width: 6rem;
+    height: 6rem;
+    margin: -3rem 0 0 -3rem;
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    border-color: transparent;
+}
+
+.cursor.is-hover .cursor__dot {
+    opacity: 0;
+}
+
+.cursor.is-label .cursor__ring {
+    width: 8.4rem;
+    height: 8.4rem;
+    margin: -4.2rem 0 0 -4.2rem;
+    background: var(--gradient-accent);
+    border-color: transparent;
+}
+
+.cursor.is-label .cursor__label {
+    opacity: 1;
+}
+
+.cursor.is-label .cursor__dot,
+.cursor.is-text .cursor__dot,
+.cursor.is-text .cursor__ring,
+.cursor.is-hidden .cursor__dot,
+.cursor.is-hidden .cursor__ring {
+    opacity: 0;
+}
+
+.cursor.is-down .cursor__ring {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: -1.4rem 0 0 -1.4rem;
+}
+
+// ---------------------------------------------------------------------------
+// Reveal on scroll + split text
+// ---------------------------------------------------------------------------
+
+.motion-ready [data-reveal] {
+    opacity: 0;
+    transition:
+        opacity 0.9s var(--ease-out) var(--reveal-delay, 0ms),
+        translate 1.1s var(--ease-out) var(--reveal-delay, 0ms),
+        scale 1.1s var(--ease-out) var(--reveal-delay, 0ms),
+        filter 1.1s var(--ease-out) var(--reveal-delay, 0ms),
+        clip-path 1.2s var(--ease-out) var(--reveal-delay, 0ms);
+    // Safety net: if the script never runs, content still appears.
+    animation: reveal-fallback 0s linear 4s forwards;
+}
+
+.motion-ready [data-reveal='up'] {
+    translate: 0 4.8rem;
+}
+
+.motion-ready [data-reveal='left'] {
+    translate: -6rem 0;
+}
+
+.motion-ready [data-reveal='right'] {
+    translate: 6rem 0;
+}
+
+.motion-ready [data-reveal='scale'] {
+    scale: 0.92;
+    filter: blur(0.8rem);
+}
+
+.motion-ready [data-reveal].is-revealed {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    filter: none;
+    animation: none;
+}
+
+@keyframes reveal-fallback {
+    to {
+        opacity: 1;
+        translate: none;
+        scale: none;
+        filter: none;
+    }
+}
+
+.split-word {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+    vertical-align: top;
+}
+
+.split-char {
+    display: inline-block;
+}
+
+.motion-ready [data-split] .split-char {
+    transform: translateY(110%) rotate(6deg);
+    opacity: 0;
+    transition:
+        transform 0.9s var(--ease-out) calc(var(--intro-offset-local, 0s) + var(--i) * 28ms),
+        opacity 0.6s ease calc(var(--intro-offset-local, 0s) + var(--i) * 28ms);
+}
+
+.motion-ready [data-split].is-revealed .split-char {
+    transform: none;
+    opacity: 1;
+}
+
+// Filtered-in items replay a short entrance.
+.is-filter-in {
+    animation: filter-in 0.6s var(--ease-out) both;
+}
+
+@keyframes filter-in {
+    from {
+        opacity: 0;
+        transform: translateY(2rem) scale(0.98);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Tilt cards — 3D rotation from the pointer plus a moving glare
+// ---------------------------------------------------------------------------
+
+[data-tilt] {
+    transform: perspective(110rem) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0));
+    transition: transform 0.6s var(--ease-out), box-shadow 0.4s ease, border-color 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+[data-tilt].is-tilting {
+    transition: transform 0.15s linear, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.has-cursor [data-tilt]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.18), transparent 45%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.has-cursor [data-tilt].is-tilting::after {
+    opacity: 1;
+}
+
+// ---------------------------------------------------------------------------
+// Section heading — index, split title, lead and drifting ghost word
+// ---------------------------------------------------------------------------
+
+.section-heading {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.section-heading__ghost {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    font-family: var(--font-family-heading);
+    font-size: clamp(7rem, 15vw, 19rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--color-text) 10%, transparent);
+    transform: translate(calc(-50% + var(--sx, 0px)), -50%);
+    pointer-events: none;
+    user-select: none;
+}
+
+.section-heading__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0;
+    font-family: var(--font-family-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+}
+
+.section-heading__line {
+    width: 6rem;
+    height: 0.2rem;
+    border-radius: 0.2rem;
+    background: var(--gradient-accent);
+    transform-origin: left center;
+}
+
+.motion-ready .section-heading__eyebrow .section-heading__line {
+    transform: scaleX(0);
+    transition: transform 1.2s var(--ease-out) 0.3s;
+}
+
+.motion-ready .section-heading__eyebrow.is-revealed .section-heading__line {
+    transform: scaleX(1);
+}
+
+.section-heading__title {
+    margin: 0;
+}
+
+.section-heading__lead {
+    max-width: 60rem;
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--color-muted);
+}
+
+.section-heading--page {
+    padding-top: 6rem;
+}
+
+// ---------------------------------------------------------------------------
+// Stats strip + marquee (homepage)
+// ---------------------------------------------------------------------------
+
+.stats-strip {
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+}
+
+.stats-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.6rem;
+}
+
+.stats-strip__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 2.6rem 2.8rem;
+    border-radius: var(--radius-card);
+    background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    -webkit-backdrop-filter: blur(1.6rem) saturate(1.4);
+    backdrop-filter: blur(1.6rem) saturate(1.4);
+    overflow: hidden;
+}
+
+.stats-strip__item::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.3rem;
+    background: var(--gradient-accent);
+}
+
+.stats-strip__icon {
+    position: absolute;
+    right: 2.2rem;
+    top: 2.2rem;
+    font-size: 2.2rem;
+    color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.stats-strip__value {
+    font-family: var(--font-family-heading);
+    font-size: clamp(3.6rem, 4vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stats-strip__label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+.marquee {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin-block: 6rem 2rem;
+    padding-block: 1.8rem;
+    overflow: hidden;
+    background: var(--gradient-accent);
+    color: var(--color-accent-text);
+    transform: rotate(-1.5deg) scale(1.02);
+    box-shadow: var(--glow-accent);
+}
+
+.marquee__list {
+    display: flex;
+    flex-shrink: 0;
+    gap: 4.8rem;
+    margin: 0;
+    padding: 0 2.4rem;
+    list-style: none;
+    font-family: var(--font-family-heading);
+    font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+
+    li {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.4rem;
+    }
+
+    i {
+        font-size: 0.8em;
+        opacity: 0.8;
+    }
+
+    li::after {
+        content: '✦';
+        margin-left: 3.4rem;
+        opacity: 0.6;
+    }
+}
+
+.motion-ready .marquee__list {
+    animation: marquee 40s linear infinite;
+}
+
+.motion-ready .marquee:hover .marquee__list {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Filter chips (publications)
+// ---------------------------------------------------------------------------
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3.6rem;
+}
+
+.filter-chips__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s var(--ease-spring);
+
+    span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.4rem;
+        height: 2.4rem;
+        padding: 0 0.7rem;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+        color: var(--color-accent);
+        font-size: 1.1rem;
+    }
+}
+
+.filter-chips__chip:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-0.2rem);
+}
+
+.filter-chips__chip.is-active {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    color: var(--color-accent-text);
+
+    span {
+        background: rgba(255, 255, 255, 0.25);
+        color: inherit;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Back to top with scroll-progress ring
+// ---------------------------------------------------------------------------
+
+.back-to-top {
+    position: fixed;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    z-index: 70;
+    display: grid;
+    place-items: center;
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    color: var(--color-accent);
+    box-shadow: var(--shadow-card);
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2rem) scale(0.8);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.5s var(--ease-spring);
+
+    i {
+        grid-area: 1 / 1;
+        font-size: 1.5rem;
+        transition: transform 0.3s var(--ease-out);
+    }
+}
+
+.back-to-top:hover i {
+    transform: translateY(-0.3rem);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.back-to-top__ring {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+
+    circle {
+        fill: none;
+        stroke: var(--color-border);
+        stroke-width: 2;
+    }
+
+    .back-to-top__progress {
+        stroke: var(--color-accent);
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        stroke-linecap: round;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Cross-document page transitions (browsers with View Transitions)
+// ---------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+        animation: vt-out 0.35s var(--ease-out) both;
+    }
+
+    ::view-transition-new(root) {
+        animation: vt-in 0.55s var(--ease-out) both;
+    }
+}
+
+@keyframes vt-out {
+    to {
+        opacity: 0;
+        transform: translateY(-1.6rem);
+        filter: blur(0.4rem);
+    }
+}
+
+@keyframes vt-in {
+    from {
+        opacity: 0;
+        transform: translateY(2.4rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .back-to-top {
+        right: 1.6rem;
+        bottom: 1.6rem;
+        width: 4.6rem;
+        height: 4.6rem;
+    }
+
+    .stats-strip__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .stats-strip__item {
+        padding: 2rem 1.8rem;
+    }
+
+    .stats-strip__icon {
+        display: none;
+    }
+}

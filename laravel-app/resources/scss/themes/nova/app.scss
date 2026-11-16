@@ -1,0 +1,76 @@
+// Nova — bold and creative. Vibrant magenta accent, large type, fully
+// rounded shapes. Inspired by the creative-portfolio reference in claude.md
+// (madeline-eppley.com), balanced against the academic audience with a
+// clean geometric sans rather than anything overly playful.
+
+@use '../base/reset';
+@use '../base/partials/blog';
+@use '../base/partials/carousel';
+@use '../base/partials/research';
+@use '../base/partials/publications';
+@use '../base/partials/news';
+@use '../base/partials/share-buttons';
+@use '../base/partials/hero';
+@use '../base/partials/about';
+@use '../base/partials/contact';
+@use '../base/partials/landing';
+@use '../base/partials/awards';
+@use '../base/partials/code';
+@use '../base/partials/motion';
+
+:root {
+    --color-bg: #ffffff;
+    --color-text: #20122b;
+    --color-accent: #d6247a;
+    --color-accent-2: #7c3aed;
+    --color-accent-text: #ffffff;
+    --color-heading: #20122b;
+    --color-surface: #faf6fb;
+    --color-border: rgba(32, 18, 43, 0.12);
+
+    --color-nav-bg: #20122b;
+    --color-nav-text: #f8f3fa;
+    --color-footer-bg: #170d1f;
+    --color-footer-text: #f8f3fa;
+
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-heading: 'Space Grotesk', 'Inter', sans-serif;
+    --radius-card: 2rem;
+}
+
+:root[data-scheme='dark'] {
+    --color-bg: #160d1d;
+    --color-text: #f3ebf6;
+    --color-accent: #ff5ba3;
+    --color-accent-2: #a78bfa;
+    --color-accent-text: #160d1d;
+    --color-heading: #ff5ba3;
+    --color-surface: #1f1428;
+    --color-border: rgba(243, 235, 246, 0.14);
+    --color-nav-bg: #0f0814;
+    --color-footer-bg: #0f0814;
+}
+
+.theme-nova {
+    h1,
+    h2 {
+        font-weight: 700;
+        letter-spacing: -0.035em;
+    }
+
+    .site-header__brand {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .site-header__nav a {
+        font-weight: 600;
+    }
+
+    .btn,
+    .publication-card__btn,
+    .site-header__cta,
+    .blog-card__more {
+        border-radius: 999px;
+    }
+}

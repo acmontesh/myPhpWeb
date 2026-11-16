@@ -1,0 +1,56 @@
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    gap: 2rem;
+}
+
+.theme-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1.2rem;
+}
+
+.theme-card.is-active {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 0.2rem rgba(47, 111, 237, 0.15);
+}
+
+.theme-card__swatches {
+    display: flex;
+    gap: 0.6rem;
+
+    span {
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 50%;
+        border: 1px solid rgba(17, 24, 39, 0.1);
+    }
+}
+
+.theme-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.theme-card p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 1.25rem;
+    flex: 1;
+}
+
+.theme-card__actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.theme-card__actions form {
+    display: inline-flex;
+}

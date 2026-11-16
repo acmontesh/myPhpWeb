@@ -1,0 +1,206 @@
+.about-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    align-items: start;
+    gap: 6rem;
+}
+
+.about-content:not(:has(.about-content__media)) {
+    grid-template-columns: 1fr;
+    max-width: 84rem;
+    margin-inline: auto;
+}
+
+.about-content__media {
+    position: sticky;
+    top: calc(var(--header-height) + 3rem);
+}
+
+.about-content__frame {
+    position: relative;
+    z-index: 1;
+    border-radius: calc(var(--radius-card) * 2);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
+}
+
+// Offset gradient frame behind the photo, drifting with parallax.
+.about-content__deco {
+    position: absolute;
+    inset: 2.4rem -2.4rem -2.4rem 2.4rem;
+    border-radius: calc(var(--radius-card) * 2);
+    border: 0.2rem solid var(--color-accent);
+    background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 14%, transparent) 0 0.2rem, transparent 0.2rem 1.2rem);
+    translate: 0 var(--py, 0);
+}
+
+.about-content__body {
+    min-width: 0;
+    font-size: 1.6rem;
+    line-height: 1.85;
+
+    :is(h1, h2, h3, h4, h5, h6) {
+        text-align: left;
+    }
+
+    img {
+        max-width: 100%;
+        border-radius: 1rem;
+    }
+}
+
+.about-content__headline {
+    margin: 0 0 2.4rem;
+    font-family: var(--font-family-heading);
+    font-size: clamp(2.2rem, 2.6vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+// ---------------------------------------------------------------------------
+// Education / Professional Experience / Research Interests
+// ---------------------------------------------------------------------------
+
+.about-subsections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 2.4rem;
+    margin-top: 7rem;
+}
+
+.about-subsection {
+    position: relative;
+    padding: 3.2rem 2.8rem;
+    border-radius: calc(var(--radius-card) * 1.4);
+    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.about-subsection::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.3rem;
+    background: var(--gradient-accent);
+}
+
+.about-subsection__title {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0 0 2.6rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: left;
+
+    i {
+        display: grid;
+        place-items: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+        background: var(--gradient-accent);
+        color: var(--color-accent-text);
+        font-size: 1.6rem;
+    }
+}
+
+// Timeline: a vertical line connects the entry icons.
+.about-subsection__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-subsection__list::before {
+    content: '';
+    position: absolute;
+    left: 1.75rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 0.2rem;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    opacity: 0.35;
+}
+
+.about-subsection__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+}
+
+.about-subsection__icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 3.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 0.2rem solid color-mix(in srgb, var(--color-accent) 50%, transparent);
+    color: var(--color-accent);
+    font-size: 1.4rem;
+    transition: transform 0.4s var(--ease-spring), background-color 0.3s ease, color 0.3s ease;
+}
+
+.about-subsection__item:hover .about-subsection__icon {
+    transform: scale(1.15);
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+}
+
+.about-subsection__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+    padding-top: 0.4rem;
+
+    strong {
+        font-size: 1.45rem;
+        font-weight: 600;
+        line-height: 1.45;
+    }
+
+    span {
+        font-size: 1.3rem;
+        line-height: 1.55;
+        color: var(--color-muted);
+    }
+}
+
+@media (max-width: 860px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .about-content__media {
+        position: relative;
+        top: auto;
+        max-width: 32rem;
+        margin-inline: auto;
+    }
+}

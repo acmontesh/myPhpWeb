@@ -1,0 +1,90 @@
+// Code embedded in rich-text content (blog posts especially). Deliberately
+// distinct from the surrounding prose: monospace, tinted panel, accent rule
+// down the left edge, and horizontal scrolling so long lines never stretch
+// the page. Applies wherever purified WYSIWYG HTML is rendered.
+
+$code-scopes: '.blog-post__body, .news-post__body, .research-item__content, .about-content__body';
+
+#{$code-scopes} {
+    // Block-level code
+    pre {
+        position: relative;
+        margin: 2.4rem 0;
+        padding: 1.8rem 2rem;
+        border-radius: 0.8rem;
+        border: 1px solid var(--color-border);
+        border-left: 0.3rem solid var(--color-accent);
+        background: var(--color-code-bg);
+        color: var(--color-code-text);
+        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
+        font-size: 1.25rem;
+        line-height: 1.7;
+        text-align: left;
+        white-space: pre;
+        overflow-x: auto;
+        tab-size: 4;
+    }
+
+    // A <code> inside <pre> should not re-apply the inline pill styling.
+    pre code {
+        display: block;
+        padding: 0;
+        border: none;
+        background: none;
+        color: inherit;
+        font-size: inherit;
+        white-space: inherit;
+    }
+
+    // Inline code inside a sentence
+    code {
+        padding: 0.15em 0.45em;
+        border-radius: 0.4rem;
+        background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+        color: var(--color-accent);
+        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+}
+
+// Copy-to-clipboard button, added by JS only when it can actually work.
+.code-block {
+    position: relative;
+}
+
+.code-block__copy {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    color: color-mix(in srgb, var(--color-text) 70%, transparent);
+    font-family: var(--font-family-base);
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.code-block:hover .code-block__copy,
+.code-block__copy:focus-visible {
+    opacity: 1;
+}
+
+.code-block__copy:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.code-block__copy.is-copied {
+    opacity: 1;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}

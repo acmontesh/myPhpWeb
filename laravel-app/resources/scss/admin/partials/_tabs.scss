@@ -1,0 +1,32 @@
+.tabs__nav {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.tabs__trigger {
+    padding: 1rem 1.6rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+}
+
+.tabs__trigger.is-active {
+    color: var(--admin-accent);
+    border-bottom-color: var(--admin-accent);
+}
+
+.tabs__panel {
+    display: none;
+}
+
+.tabs__panel.is-active {
+    display: block;
+}

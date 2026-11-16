@@ -1,0 +1,192 @@
+.publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.publication-card {
+    position: relative;
+    display: flex;
+    gap: 2.8rem;
+    padding: 2.8rem 3.2rem;
+    border-radius: calc(var(--radius-card) * 1.2);
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.publication-card[hidden] {
+    display: none;
+}
+
+// Accent bar that grows on hover.
+.publication-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.4rem;
+    background: var(--gradient-accent);
+    transform: scaleY(0.25);
+    transform-origin: top;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.publication-card:hover {
+    border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    box-shadow: var(--shadow-card);
+}
+
+.publication-card:hover::before {
+    transform: scaleY(1);
+}
+
+.publication-card__media {
+    flex: 0 0 20rem;
+    align-self: flex-start;
+    aspect-ratio: 1;
+    padding: 0.8rem;
+    border-radius: var(--radius-card);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 1s var(--ease-out);
+    }
+}
+
+.publication-card:hover .publication-card__media img {
+    transform: scale(1.06);
+}
+
+.publication-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    flex: 1;
+    min-width: 0;
+
+    h3 {
+        margin: 0;
+        font-size: 2rem;
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: 1.4rem;
+    }
+}
+
+.publication-card__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.6rem;
+}
+
+.publication-card__type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.3rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--gradient-accent);
+    color: var(--color-accent-text);
+}
+
+.publication-card__type.badge-conference {
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    color: var(--color-accent);
+}
+
+.publication-card__citations {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-muted);
+
+    i {
+        color: var(--color-accent);
+    }
+}
+
+.publication-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem 2rem;
+    margin-top: 0.6rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed var(--color-border);
+}
+
+.publication-card__doi {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 1.2rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.publication-card__doi:hover {
+    color: var(--color-accent);
+}
+
+.publication-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.publication-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem 1.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-spring);
+}
+
+.publication-card__btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-text);
+    transform: translateY(-0.2rem);
+}
+
+@media (max-width: 700px) {
+    .publication-card {
+        flex-direction: column;
+        padding: 2.4rem;
+    }
+
+    .publication-card__media {
+        flex-basis: auto;
+        aspect-ratio: 16 / 9;
+    }
+}

@@ -1,0 +1,87 @@
+// Graphite — dark and technical. Near-black with a neon-lime accent,
+// terminal-inspired monospace type throughout, sharp edges. Aimed squarely
+// at the AI/ML/CS half of the audience in claude.md's design preferences.
+
+@use '../base/reset';
+@use '../base/partials/blog';
+@use '../base/partials/carousel';
+@use '../base/partials/research';
+@use '../base/partials/publications';
+@use '../base/partials/news';
+@use '../base/partials/share-buttons';
+@use '../base/partials/hero';
+@use '../base/partials/about';
+@use '../base/partials/contact';
+@use '../base/partials/landing';
+@use '../base/partials/awards';
+@use '../base/partials/code';
+@use '../base/partials/motion';
+
+:root {
+    --color-bg: #0b0d10;
+    --color-text: #c9d1d9;
+    --color-accent: #8ef05a;
+    --color-accent-2: #22d3ee;
+    --color-accent-text: #0b0d10;
+    --color-heading: #8ef05a;
+    --color-surface: #12161b;
+    --color-border: rgba(142, 240, 90, 0.2);
+
+    --color-nav-bg: #07090b;
+    --color-nav-text: #c9d1d9;
+    --color-footer-bg: #07090b;
+    --color-footer-text: #c9d1d9;
+
+    --font-family-base: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
+    --font-family-heading: 'JetBrains Mono', 'Fira Code', 'Courier New', ui-monospace, monospace;
+    --radius-card: 0.3rem;
+}
+
+:root[data-scheme='light'] {
+    --color-bg: #f4f6f2;
+    --color-text: #14180f;
+    --color-accent: #3f7d1d;
+    --color-accent-2: #0e7490;
+    --color-accent-text: #ffffff;
+    --color-heading: #14180f;
+    --color-surface: #ffffff;
+    --color-border: rgba(20, 24, 15, 0.14);
+    --color-nav-bg: #14180f;
+    --color-nav-text: #e8eee0;
+    --color-footer-bg: #14180f;
+    --color-footer-text: #e8eee0;
+}
+
+.theme-graphite {
+    h1,
+    h2 {
+        letter-spacing: -0.04em;
+    }
+
+    .site-header__brand {
+        font-size: 1.5rem;
+    }
+
+    .site-header__prompt {
+        color: var(--color-accent);
+    }
+
+    .blog-card,
+    .news-teaser-card,
+    .publication-card {
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+    }
+
+    // Monospace runs wide: tighten the desktop bar so all links fit one row.
+    @media (min-width: 1280px) {
+        .site-header__nav {
+            font-size: 1.12rem;
+            letter-spacing: -0.02em;
+        }
+
+        .site-header__nav a {
+            padding: 0.8rem 0.6rem;
+        }
+    }
+}

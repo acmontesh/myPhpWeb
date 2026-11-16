@@ -1,0 +1,74 @@
+// Ivory — editorial and minimal. Serif headings on cream, deep forest-green
+// accent, generous margins. Inspired by academic-journal style layouts
+// (robertavaltorta.com in claude.md's design references).
+
+@use '../base/reset';
+@use '../base/partials/blog';
+@use '../base/partials/carousel';
+@use '../base/partials/research';
+@use '../base/partials/publications';
+@use '../base/partials/news';
+@use '../base/partials/share-buttons';
+@use '../base/partials/hero';
+@use '../base/partials/about';
+@use '../base/partials/contact';
+@use '../base/partials/landing';
+@use '../base/partials/awards';
+@use '../base/partials/code';
+@use '../base/partials/motion';
+
+:root {
+    --color-bg: #faf7f0;
+    --color-text: #2b2620;
+    --color-accent: #1f4d3a;
+    --color-accent-2: #b08d57;
+    --color-accent-text: #ffffff;
+    --color-heading: #1f4d3a;
+    --color-surface: #ffffff;
+    --color-border: rgba(43, 38, 32, 0.14);
+
+    --color-nav-bg: #23302a;
+    --color-nav-text: #f2efe6;
+    --color-footer-bg: #1a241f;
+    --color-footer-text: #f2efe6;
+
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-heading: 'Lora', Georgia, 'Iowan Old Style', serif;
+    --radius-card: 0.8rem;
+}
+
+:root[data-scheme='dark'] {
+    --color-bg: #1b1a16;
+    --color-text: #ece7dc;
+    --color-accent: #6fbf95;
+    --color-accent-2: #d4b483;
+    --color-accent-text: #10201a;
+    --color-heading: #6fbf95;
+    --color-surface: #242219;
+    --color-border: rgba(236, 231, 220, 0.14);
+    --color-nav-bg: #12100c;
+    --color-footer-bg: #12100c;
+}
+
+.theme-ivory {
+    h1,
+    h2 {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+
+    .site-header__brand {
+        font-family: var(--font-family-heading);
+        font-size: 1.9rem;
+        letter-spacing: 0.01em;
+    }
+
+    // Uppercase + letter-spacing runs noticeably wider than the other themes,
+    // so this is dialled back slightly to keep all 8 links on one centred row
+    // at desktop width. Small caps suit the editorial look anyway.
+    .site-header__nav {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 1.05rem;
+    }
+}

@@ -1,0 +1,89 @@
+.dashboard-welcome {
+    margin-bottom: 2.8rem;
+}
+
+.dashboard-welcome h1 {
+    margin: 0 0 0.6rem;
+    font-size: 2.4rem;
+}
+
+.dashboard-welcome p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 1.4rem;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    gap: 1.6rem;
+}
+
+.quick-action-card {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 2rem;
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1.2rem;
+    color: var(--admin-text);
+}
+
+.quick-action-card:hover {
+    border-color: var(--admin-accent);
+}
+
+.quick-action-card__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 1rem;
+    background: rgba(47, 111, 237, 0.1);
+    color: var(--admin-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.quick-action-card__label {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.quick-action-card__hint {
+    margin: 0.2rem 0 0;
+    font-size: 1.15rem;
+    color: var(--admin-text-muted);
+}
+
+.coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 6rem 2rem;
+    background: var(--admin-surface);
+    border: 1px dashed var(--admin-border);
+    border-radius: 1.2rem;
+}
+
+.coming-soon i {
+    font-size: 3.4rem;
+    color: var(--admin-accent);
+}
+
+.coming-soon h1,
+.coming-soon h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.coming-soon p {
+    margin: 0;
+    max-width: 44rem;
+    color: var(--admin-text-muted);
+    font-size: 1.3rem;
+}

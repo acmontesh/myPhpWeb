@@ -1,0 +1,74 @@
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    background: rgba(17, 24, 39, 0.5);
+    padding: 2rem;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal__panel {
+    width: 100%;
+    max-width: 42rem;
+    background: var(--admin-surface);
+    border-radius: 1.2rem;
+    padding: 2.8rem;
+    box-shadow: 0 2rem 5rem rgba(17, 24, 39, 0.25);
+}
+
+.modal__panel h2 {
+    margin: 0 0 1rem;
+    font-size: 1.8rem;
+}
+
+.modal__panel p {
+    margin: 0;
+    color: var(--admin-text-muted);
+    font-size: 1.35rem;
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2.4rem;
+}
+
+.modal__actions .btn {
+    width: auto;
+    padding-inline: 2rem;
+}
+
+.modal__panel--wide {
+    max-width: 110rem;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+}
+
+.modal__preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.modal__preview-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal__panel--wide iframe {
+    flex: 1;
+    width: 100%;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.8rem;
+    background: #fff;
+}

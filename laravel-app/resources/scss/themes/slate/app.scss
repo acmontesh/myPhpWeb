@@ -1,0 +1,74 @@
+// Slate — technical and precise. Dark charcoal-blue with an electric blue
+// accent and monospace headings, aimed at the engineering/CS side of the
+// audience described in claude.md's design preferences.
+
+@use '../base/reset';
+@use '../base/partials/blog';
+@use '../base/partials/carousel';
+@use '../base/partials/research';
+@use '../base/partials/publications';
+@use '../base/partials/news';
+@use '../base/partials/share-buttons';
+@use '../base/partials/hero';
+@use '../base/partials/about';
+@use '../base/partials/contact';
+@use '../base/partials/landing';
+@use '../base/partials/awards';
+@use '../base/partials/code';
+@use '../base/partials/motion';
+
+:root {
+    --color-bg: #12151c;
+    --color-text: #e7eaf0;
+    --color-accent: #4d8bff;
+    --color-accent-2: #22d3ee;
+    --color-accent-text: #0a0d13;
+    --color-heading: #ffffff;
+    // Slate's accent is light enough for dark on-accent text, but the hero
+    // overlay darkens it — white stays the readable choice there.
+    --color-hero-text: #ffffff;
+    --color-surface: #1a1f29;
+    --color-border: rgba(231, 234, 240, 0.14);
+
+    --color-nav-bg: #0c0f15;
+    --color-nav-text: #e7eaf0;
+    --color-footer-bg: #0c0f15;
+    --color-footer-text: #e7eaf0;
+
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-family-heading: 'JetBrains Mono', 'Courier New', ui-monospace, monospace;
+    --radius-card: 0.6rem;
+}
+
+:root[data-scheme='light'] {
+    --color-bg: #f5f7fb;
+    --color-text: #12151c;
+    --color-accent: #1f5fe0;
+    --color-accent-2: #0891b2;
+    --color-accent-text: #ffffff;
+    --color-heading: #12151c;
+    --color-surface: #ffffff;
+    --color-border: rgba(18, 21, 28, 0.12);
+    --color-nav-bg: #12151c;
+    --color-nav-text: #e7eaf0;
+    --color-footer-bg: #12151c;
+    --color-footer-text: #e7eaf0;
+}
+
+.theme-slate {
+    .site-header__brand {
+        font-family: var(--font-family-heading);
+        font-size: 1.5rem;
+    }
+
+    h1,
+    h2 {
+        letter-spacing: -0.03em;
+    }
+
+    .blog-card,
+    .news-teaser-card,
+    .publication-card {
+        border: 1px solid var(--color-border);
+    }
+}

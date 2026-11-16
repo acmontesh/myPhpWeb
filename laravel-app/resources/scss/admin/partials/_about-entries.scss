@@ -1,0 +1,147 @@
+// About Me subsection entries + the FontAwesome icon picker used to build them.
+
+.about-entries {
+    margin-bottom: 3rem;
+}
+
+.about-entries__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    margin-bottom: 1.2rem;
+
+    h3 {
+        margin: 0;
+        font-size: 1.45rem;
+    }
+}
+
+.about-entries__empty {
+    margin: 0;
+    padding: 1.6rem;
+    border: 1px dashed var(--admin-border);
+    border-radius: 0.8rem;
+    color: var(--admin-text-muted);
+    font-size: 1.25rem;
+}
+
+.about-entries__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.about-entries__item {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.8rem;
+    background: var(--admin-surface);
+}
+
+.about-entries__icon {
+    width: 2.4rem;
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--admin-accent);
+}
+
+.about-entries__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    strong {
+        font-size: 1.3rem;
+    }
+
+    span {
+        color: var(--admin-text-muted);
+        font-size: 1.2rem;
+    }
+}
+
+.about-entries__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn--small {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.2rem;
+}
+
+.admin-form__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+// ---------------------------------------------------------------------------
+// Icon picker
+// ---------------------------------------------------------------------------
+
+.icon-picker {
+    border: 1px solid var(--admin-border);
+    border-radius: 0.8rem;
+    padding: 1.6rem;
+    background: var(--admin-surface);
+}
+
+.icon-picker__preview {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding-bottom: 1.4rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid var(--admin-border);
+    color: var(--admin-text-muted);
+    font-size: 1.2rem;
+
+    i {
+        font-size: 2.2rem;
+        color: var(--admin-accent);
+        width: 2.8rem;
+        text-align: center;
+    }
+}
+
+.icon-picker__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4.4rem, 1fr));
+    gap: 0.8rem;
+}
+
+.icon-picker__option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.4rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 0.8rem;
+    background: none;
+    color: var(--admin-text);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-picker__option:hover {
+    border-color: var(--admin-accent);
+    color: var(--admin-accent);
+    transform: translateY(-0.2rem);
+}
+
+.icon-picker__option.is-selected {
+    border-color: var(--admin-accent);
+    background: color-mix(in srgb, var(--admin-accent) 12%, transparent);
+    color: var(--admin-accent);
+}

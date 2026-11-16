@@ -1,0 +1,171 @@
+// Header carousel slide manager (Appearance → Header Carousel).
+
+.hero-slide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    gap: 1.8rem;
+}
+
+.hero-slide-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--admin-border);
+    border-radius: 1rem;
+    background: var(--admin-surface);
+    overflow: hidden;
+}
+
+.hero-slide-card__image {
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--admin-bg);
+}
+
+.hero-slide-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.4rem 1.6rem;
+
+    strong {
+        font-size: 1.3rem;
+    }
+
+    span {
+        color: var(--admin-text-muted);
+        font-size: 1.2rem;
+    }
+}
+
+.hero-slide-card__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    padding: 0 1.6rem 1.4rem;
+}
+
+// ---------------------------------------------------------------------------
+// Overlay opacity control
+// ---------------------------------------------------------------------------
+
+.hero-overlay-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 28rem);
+    align-items: start;
+    gap: 1.6rem 2.4rem;
+    margin-bottom: 2.4rem;
+    padding: 2rem 2.2rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 1rem;
+    background: var(--admin-surface);
+}
+
+.hero-overlay-form__intro {
+    grid-column: 1;
+
+    h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.5rem;
+    }
+
+    p {
+        margin: 0;
+        max-width: 56rem;
+        color: var(--admin-text-muted);
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+}
+
+.hero-overlay-form__control {
+    grid-column: 1;
+
+    label {
+        display: block;
+        margin-bottom: 0.6rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+}
+
+.hero-overlay-form__slider {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+
+    input[type='range'] {
+        flex: 1;
+        min-width: 0;
+        accent-color: var(--admin-accent);
+        cursor: pointer;
+    }
+
+    output {
+        min-width: 5.5rem;
+        padding: 0.4rem 0.8rem;
+        border: 1px solid var(--admin-border);
+        border-radius: 0.6rem;
+        background: var(--admin-bg);
+        font-size: 1.3rem;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+    }
+}
+
+// Sample tile: same stacking as the real hero, so the chosen value reads true.
+.hero-overlay-preview {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.8rem;
+    border: 1px solid var(--admin-border);
+    overflow: hidden;
+}
+
+.hero-overlay-preview__image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--admin-bg);
+}
+
+.hero-overlay-preview__wash {
+    position: absolute;
+    inset: 0;
+    background: var(--admin-accent);
+}
+
+.hero-overlay-preview__label {
+    position: relative;
+    z-index: 1;
+    padding-inline: 1rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.45);
+}
+
+.hero-overlay-form .btn {
+    grid-column: 1;
+    justify-self: start;
+}
+
+@media (max-width: 860px) {
+    .hero-overlay-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-overlay-preview {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}

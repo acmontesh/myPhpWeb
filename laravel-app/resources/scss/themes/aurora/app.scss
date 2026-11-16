@@ -1,0 +1,57 @@
+// Aurora — the site's default theme. Warm and academic: burnt orange on
+// white, generous whitespace, softly rounded cards. See implementation-plan.md
+// §3.3 and Style preferences in claude.md (default colors).
+
+@use '../base/reset';
+@use '../base/partials/blog';
+@use '../base/partials/carousel';
+@use '../base/partials/research';
+@use '../base/partials/publications';
+@use '../base/partials/news';
+@use '../base/partials/share-buttons';
+@use '../base/partials/hero';
+@use '../base/partials/about';
+@use '../base/partials/contact';
+@use '../base/partials/landing';
+@use '../base/partials/awards';
+@use '../base/partials/code';
+@use '../base/partials/motion';
+
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1c1b19;
+    --color-accent: #cc5500;
+    --color-accent-2: #f59e0b;
+    --color-accent-text: #ffffff;
+    --color-heading: #cc5500;
+    --color-surface: #faf7f4;
+    --color-border: rgba(28, 27, 25, 0.12);
+
+    --color-nav-bg: #1c1b19;
+    --color-nav-text: #f4f1ee;
+    --color-footer-bg: #131211;
+    --color-footer-text: #efeae5;
+
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-family-heading: 'Space Grotesk', 'Inter', sans-serif;
+    --radius-card: 1.2rem;
+}
+
+:root[data-scheme='dark'] {
+    --color-bg: #16150f;
+    --color-text: #eee9e2;
+    --color-heading: #f0873c;
+    --color-accent: #f0873c;
+    --color-accent-2: #fbbf24;
+    --color-accent-text: #16150f;
+    --color-surface: #201e17;
+    --color-border: rgba(238, 233, 226, 0.14);
+    --color-nav-bg: #0f0e0a;
+    --color-footer-bg: #0f0e0a;
+}
+
+.theme-aurora {
+    .site-header__brand {
+        letter-spacing: -0.03em;
+    }
+}
